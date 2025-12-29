@@ -45,3 +45,5 @@ I have many other features in mind to add in future, but their implementation de
     "time_created": "2025-12-29T16:12:10+01:00",
     "time_updated": "2025-12-29T16:12:10+01:00"
 }
+
+Note: Look at the findSTLs object, it contains links to different websites where you can find STL files for the idea. You may be askin why not to generate URLs on frontend. The reason is simple, move the logic to the backend and thus reduce stress on end user's device. I aim to have this app as fast and intuitive as possible. Yes, this app will probasbly never have this much features and complexity to affect performance, but I want to show my skills and make it scalable, haha.
