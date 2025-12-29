@@ -42,7 +42,7 @@ export function Nav() {
       </div>
 
       {isMenuOpen && (
-        <div className="md:hidden absolute top-16 left-0 right-0 bg-nav-black p-6 shadow-lg z-50">
+        <div className="md:hidden absolute top-16 left-0 right-0 dark:bg-nav-black bg-creme-white p-6 shadow-lg z-50">
           <div className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <a

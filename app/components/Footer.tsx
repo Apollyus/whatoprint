@@ -10,7 +10,7 @@ export function Footer() {
         </a>
       </div>
 
-      <div className="flex flex-col md:flex-row items-center justify-between min-w-[1000px] max-w-[1300px] gap-4 text-sm text-creme-white/80">
+      <div className="flex flex-col md:flex-row items-center justify-between w-screen max-w-[1300px] gap-4 text-sm text-creme-white/80">
         <div className="flex items-center gap-1 text-normal">
           <span>Built with</span>
           <span className="text-red-500">❤️</span>
