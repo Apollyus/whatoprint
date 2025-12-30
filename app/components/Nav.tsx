@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ThemeToggle } from "./ThemeToggle";
+import { ThemeToggle } from "./ui/ThemeToggle";
 
 const navLinks = [
   { href: "#about", label: "About" },

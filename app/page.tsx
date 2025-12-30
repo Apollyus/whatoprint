@@ -1,14 +1,20 @@
 "use client"
 
 import { Nav } from "./components/Nav";
-import { Heading } from "./components/Heading";
-import { GenerateButton } from "./components/GenerateButton";
+import { Heading } from "./components/ui/Heading";
+import { GenerateButton } from "./components/ui/GenerateButton";
 import { Footer } from "./components/Footer";
+import axios from "axios";
 
 export default function Home() {
   const handleGenerate = () => {
-    console.log("Generate button clicked!");
-    // Logic will be added later
+    axios.get("http://localhost:3000/api/v1/generate-idea")
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return (
