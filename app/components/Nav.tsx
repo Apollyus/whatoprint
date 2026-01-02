@@ -13,7 +13,7 @@ export function Nav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="w-full px-6 py-4 md:px-12 dark:bg-nav-black md:dark:bg-transparent">
+    <nav className="absolute top-0 w-full px-6 py-4 md:px-12 dark:bg-nav-black md:dark:bg-transparent">
       <div className="flex items-center justify-end gap-10">
         <div className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
