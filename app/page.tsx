@@ -9,11 +9,13 @@ import axios from "axios";
 import { useState } from "react";
 import Loading from "./components/ui/Loading";
 import { ArrowRight } from "lucide-react";
+import { PlatformLinkButton } from "./components/ui/PlatformLinkButton";
 
 export default function Home() {
 
   const [idea, setIdea] = useState<any>(null);
   const [loading, setLoading] = useState(false);
+  const [showSTLs, setShowSTLs] = useState(false);
 
   const handleGenerate = () => {
     setLoading(true);
@@ -33,6 +35,14 @@ export default function Home() {
       });
   };
 
+  const handleShowSTLs = () => {
+    if(showSTLs) {
+      setShowSTLs(false);
+    } else {
+      setShowSTLs(true);
+    }
+  };
+
   return (
     <div className="flex h-screen flex-col bg-creme-white dark:bg-light-black transition-colors duration-300">
       <Nav />
@@ -40,7 +50,7 @@ export default function Home() {
       <main className="flex min-h-screen flex-col items-center justify-center gap-10 px-6">
 
         {loading ? <Loading /> : (
-          <div className="absolute bottom-[35%] left-1/2 -translate-x-1/2">
+          <div className="absolute bottom-[25%] left-1/2 -translate-x-1/2">
             
             <div className={`absolute bottom-full mb-10 w-max max-w-[90vw] md:max-w-[700px] flex flex-col gap-6 animate-fade-in ${idea ? "left-0 items-start" : "left-1/2 -translate-x-1/2 items-center"}`}>
               {idea ? (
@@ -55,10 +65,18 @@ export default function Home() {
                     <Labels labels={idea.payload.labels} />
                   </div>
 
-                  <div className="flex items-center gap-2 mb-4 text-light-black dark:text-creme-white text-2xl hover:translate-x-1 transition-transform cursor-pointer whitespace-nowrap">
+                  <button onClick={handleShowSTLs} className="flex items-center gap-2 mb-4 text-light-black dark:text-creme-white text-2xl hover:translate-x-1 transition-transform cursor-pointer whitespace-nowrap">
                     <span>Search STLs</span>
                     <ArrowRight />
+                  </button>
+
+                {showSTLs && (
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-3 w-full">
+                    {Object.entries(idea.payload.findSTLs).map(([name, url]) => (
+                      <PlatformLinkButton key={name} name={name} url={url as string} />
+                    ))}
                   </div>
+                )}
                 </>
               ) : (
                   <Heading title="Don't know what to print?" subtitle="Get ideas for 3D printing. For free!" />
