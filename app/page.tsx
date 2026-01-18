@@ -70,13 +70,13 @@ export default function Home() {
                     <ArrowRight />
                   </button>
 
-                {showSTLs && (
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-3 w-full">
-                    {Object.entries(idea.payload.findSTLs).map(([name, url]) => (
-                      <PlatformLinkButton key={name} name={name} url={url as string} />
-                    ))}
-                  </div>
-                )}
+                  {showSTLs && (
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-3 w-full">
+                      {Object.entries(idea.payload.findSTLs).map(([name, url]) => (
+                        <PlatformLinkButton key={name} name={name} url={url as string} />
+                      ))}
+                    </div>
+                  )}
                 </>
               ) : (
                   <Heading title="Don't know what to print?" subtitle="Get ideas for 3D printing. For free!" />
