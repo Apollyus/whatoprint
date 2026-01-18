@@ -10,6 +10,7 @@ import { useState } from "react";
 import Loading from "./components/ui/Loading";
 import { ArrowRight } from "lucide-react";
 import { PlatformLinkButton } from "./components/ui/PlatformLinkButton";
+import { API_URL } from "./lib/env";
 
 export default function Home() {
 
@@ -19,7 +20,7 @@ export default function Home() {
 
   const handleGenerate = () => {
     setLoading(true);
-    axios.get("http://localhost:3000/api/v1/generate-idea")
+    axios.get(API_URL + "/api/v1/generate-idea")
       .then((response) => {
         setIdea(response.data);
       })
