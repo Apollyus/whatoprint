@@ -10,7 +10,7 @@ import { useState } from "react";
 import Loading from "./components/ui/Loading";
 import { ArrowRight } from "lucide-react";
 import { PlatformLinkButton } from "./components/ui/PlatformLinkButton";
-import { API_URL } from "./lib/env";
+import { getEnvVar } from "./lib/env";
 
 export default function Home() {
 
@@ -20,7 +20,7 @@ export default function Home() {
 
   const handleGenerate = () => {
     setLoading(true);
-    axios.get(API_URL + "/api/v1/generate-idea")
+    axios.get(getEnvVar("NEXT_PUBLIC_API_URL") + "/api/v1/generate-idea")
       .then((response) => {
         setIdea(response.data);
       })
@@ -37,7 +37,7 @@ export default function Home() {
   };
 
   const handleShowSTLs = () => {
-    if(showSTLs) {
+    if (showSTLs) {
       setShowSTLs(false);
     } else {
       setShowSTLs(true);
@@ -52,12 +52,12 @@ export default function Home() {
 
         {loading ? <Loading /> : (
           <div className="absolute bottom-[25%] left-1/2 -translate-x-1/2">
-            
+
             <div className={`absolute bottom-full mb-10 w-max max-w-[90vw] md:max-w-[700px] flex flex-col gap-6 animate-fade-in ${idea ? "left-0 items-start" : "left-1/2 -translate-x-1/2 items-center"}`}>
               {idea ? (
                 <>
                   <Heading title={idea.payload.name} align="left" />
-                  
+
                   <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
                     <div className="flex items-center gap-2 text-light-black/60 dark:text-creme-white/60 font-medium text-lg whitespace-nowrap">
                       <span>{idea.payload.print_time_hours}+ hour</span>
@@ -80,15 +80,15 @@ export default function Home() {
                   )}
                 </>
               ) : (
-                  <Heading title="Don't know what to print?" subtitle="Get ideas for 3D printing. For free!" />
+                <Heading title="Don't know what to print?" subtitle="Get ideas for 3D printing. For free!" />
               )}
             </div>
 
             <GenerateButton handleGenerate={handleGenerate} loading={loading} />
-            
+
           </div>
         )}
-        
+
       </main>
 
       <Footer />
