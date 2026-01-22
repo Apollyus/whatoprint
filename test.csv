@@ -1,0 +1,6 @@
+name,description,print_time_hours,print_time_minutes,filament_used_meters,difficulty,material,type,theme,multipart,needs_support
+Self-Watering Planter,A functional two-part pot system with a water reservoir and inner basket.,8,45,22.0,Medium,PETG,Household,Gardening,true,false
+Folding Smartphone Stand,A portable and adjustable stand that folds flat for travel.,1,20,11.5,Medium,PLA,Accessory,Tech,true,false
+Infinity Fidget Cube,A tactile desk toy made of eight interconnected cubes.,3,15,14.0,Medium,PLA,Toy,Fidget,true,false
+Low-Poly Skull Dice Tower,A gothic-themed tower to ensure fair and randomized dice rolls.,12,0,45.0,Hard,PLA,Gaming,Tabletop,false,true
+Wall-Mounted Hexagon Shelf,A modular geometric shelf system for displaying small items.,5,30,18.0,Easy,PETG,Decor,Home,false,false
