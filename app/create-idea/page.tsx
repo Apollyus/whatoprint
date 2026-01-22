@@ -17,10 +17,10 @@ export default function CreateIdea() {
         print_time_minutes: 0,
         filament_used_meters: 0,
         labels: {
-            difficulty: "Easy",
-            material: "PLA",
-            type: "",
-            theme: "",
+            "label-1": "Easy",
+            "label-2": "PLA",
+            "label-3": "",
+            "label-4": "",
         },
         multipart: false,
         needs_support: false,
@@ -74,7 +74,7 @@ export default function CreateIdea() {
                 print_time_hours: 0,
                 print_time_minutes: 0,
                 filament_used_meters: 0,
-                labels: { difficulty: "Easy", material: "PLA", type: "", theme: "" },
+                labels: { "label-1": "Easy", "label-2": "PLA", "label-3": "", "label-4": "" },
                 multipart: false,
                 needs_support: false,
             });
@@ -228,11 +228,11 @@ export default function CreateIdea() {
                             <h2 className="text-2xl font-semibold text-light-black dark:text-creme-white mb-4">Labels</h2>
                             <div className="grid grid-cols-2 gap-4">
                                 <div>
-                                    <label htmlFor="difficulty" className={labelClass}>Difficulty *</label>
+                                    <label htmlFor="label-1" className={labelClass}>Difficulty *</label>
                                     <select
-                                        id="difficulty"
-                                        value={formData.labels?.difficulty}
-                                        onChange={(e) => updateLabel("difficulty", e.target.value)}
+                                        id="label-1"
+                                        value={formData.labels?.["label-1"]}
+                                        onChange={(e) => updateLabel("label-1", e.target.value)}
                                         className={inputClass}
                                     >
                                         {DIFFICULTY_OPTIONS.map(opt => (
@@ -241,11 +241,11 @@ export default function CreateIdea() {
                                     </select>
                                 </div>
                                 <div>
-                                    <label htmlFor="material" className={labelClass}>Material *</label>
+                                    <label htmlFor="label-2" className={labelClass}>Material *</label>
                                     <select
-                                        id="material"
-                                        value={formData.labels?.material}
-                                        onChange={(e) => updateLabel("material", e.target.value)}
+                                        id="label-2"
+                                        value={formData.labels?.["label-2"]}
+                                        onChange={(e) => updateLabel("label-2", e.target.value)}
                                         className={inputClass}
                                     >
                                         {MATERIAL_OPTIONS.map(opt => (
@@ -254,28 +254,28 @@ export default function CreateIdea() {
                                     </select>
                                 </div>
                                 <div>
-                                    <label htmlFor="type" className={labelClass}>Type *</label>
+                                    <label htmlFor="label-3" className={labelClass}>Type *</label>
                                     <input
-                                        id="type"
+                                        id="label-3"
                                         type="text"
                                         placeholder="Fun, Useful..."
-                                        value={formData.labels?.type}
-                                        onChange={(e) => updateLabel("type", e.target.value)}
+                                        value={formData.labels?.["label-3"]}
+                                        onChange={(e) => updateLabel("label-3", e.target.value)}
                                         className={inputClass}
                                     />
-                                    {errors["labels.type"] && <p className="text-red-500 text-sm mt-2">{errors["labels.type"][0]}</p>}
+                                    {errors["labels.label-3"] && <p className="text-red-500 text-sm mt-2">{errors["labels.label-3"][0]}</p>}
                                 </div>
                                 <div>
-                                    <label htmlFor="theme" className={labelClass}>Theme *</label>
+                                    <label htmlFor="label-4" className={labelClass}>Theme *</label>
                                     <input
-                                        id="theme"
+                                        id="label-4"
                                         type="text"
                                         placeholder="Cable Management, Electronics..."
-                                        value={formData.labels?.theme}
-                                        onChange={(e) => updateLabel("theme", e.target.value)}
+                                        value={formData.labels?.["label-4"]}
+                                        onChange={(e) => updateLabel("label-4", e.target.value)}
                                         className={inputClass}
                                     />
-                                    {errors["labels.theme"] && <p className="text-red-500 text-sm mt-2">{errors["labels.theme"][0]}</p>}
+                                    {errors["labels.label-4"] && <p className="text-red-500 text-sm mt-2">{errors["labels.label-4"][0]}</p>}
                                 </div>
                             </div>
                         </div>
