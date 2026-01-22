@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 import { ThemeToggle } from "./ui/ThemeToggle";
 
 const navLinks = [
@@ -11,11 +13,20 @@ const navLinks = [
 
 export function Nav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <nav className="absolute top-0 w-full px-6 py-4 md:px-12 dark:bg-nav-black md:dark:bg-transparent">
       <div className="flex items-center justify-end gap-10">
         <div className="hidden md:flex items-center gap-10">
+          {pathname !== "/" && (
+            <Link
+              href="/"
+              className="text-light-black dark:text-creme-white hover:opacity-70 transition-opacity text-base font-medium"
+            >
+              Home
+            </Link>
+          )}
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -44,6 +55,15 @@ export function Nav() {
       {isMenuOpen && (
         <div className="md:hidden absolute top-16 left-0 right-0 dark:bg-nav-black bg-creme-white p-6 shadow-lg z-50">
           <div className="flex flex-col gap-4">
+            {pathname !== "/" && (
+              <Link
+                href="/"
+                className="text-light-black dark:text-creme-white hover:opacity-70 transition-opacity text-base font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Home
+              </Link>
+            )}
             {navLinks.map((link) => (
               <a
                 key={link.href}
