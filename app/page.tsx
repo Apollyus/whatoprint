@@ -62,11 +62,6 @@ export default function Home() {
                     <Labels labels={idea.payload.labels} />
                   </div>
 
-                  <button onClick={handleShowSTLs} className="flex items-center gap-2 mb-4 text-light-black dark:text-creme-white text-2xl hover:translate-x-1 transition-transform cursor-pointer whitespace-nowrap">
-                    <span>Search STLs</span>
-                    <ArrowRight />
-                  </button>
-
                   {showSTLs && (
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-3 w-full">
                       {Object.entries(idea.payload.findSTLs).map(([name, url]) => (
@@ -74,6 +69,11 @@ export default function Home() {
                       ))}
                     </div>
                   )}
+
+                  <button onClick={handleShowSTLs} className="flex items-center gap-2 mb-4 text-light-black dark:text-creme-white text-2xl hover:translate-x-1 transition-transform cursor-pointer whitespace-nowrap">
+                    <span>Search STLs</span>
+                    <ArrowRight />
+                  </button>
                 </>
               ) : (
                 <Heading title="Don't know what to print?" subtitle="Get ideas for 3D printing. For free!" />
