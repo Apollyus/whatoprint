@@ -10,6 +10,7 @@ import { useState } from "react";
 import Loading from "./components/ui/Loading";
 import { ArrowRight } from "lucide-react";
 import { PlatformLinkButton } from "./components/ui/PlatformLinkButton";
+import About from "./components/About";
 
 export default function Home() {
 
@@ -27,10 +28,6 @@ export default function Home() {
         console.error(error);
       })
       .finally(() => {
-        {/*setTimeout(() => {
-          setLoading(false);
-        }, 2000);
-        */}
         setLoading(false);
       });
   };
@@ -89,6 +86,8 @@ export default function Home() {
         )}
 
       </main>
+
+      <About />
 
       <Footer />
     </div>
